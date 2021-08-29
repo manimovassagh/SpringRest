@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -24,7 +23,7 @@ public class StaffController {
 
     @GetMapping("/staffs")
     public List<Staff> getAllStaff() {
-       return staffRepository.findAll();
+        return staffRepository.findAll();
     }
 
     @GetMapping("/staffs/{id}")
@@ -35,14 +34,13 @@ public class StaffController {
     }
 
 
-    //@RequestMapping(value = "professional", method = RequestMethod.POST)
     @PostMapping("/staffs")
     public Staff createEmployee(@RequestBody Staff staff) {
         return staffRepository.save(staff);
     }
 
     @PutMapping("/staffs/{id}")
-    public ResponseEntity<Staff> updateEmployee(@PathVariable Long id, @RequestBody Staff employeeDetails){
+    public ResponseEntity<Staff> updateEmployee(@PathVariable Long id, @RequestBody Staff employeeDetails) {
         Staff staff = staffRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
 
@@ -56,7 +54,7 @@ public class StaffController {
 
     // delete Staff rest api
     @DeleteMapping("/Staffs/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
+    public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
         Staff employee = staffRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
 

@@ -42,7 +42,7 @@ public class StaffController {
 
 
 
-    @JsonFormat(pattern =
+    @JsonFormat
     @RequestMapping()
     @PutMapping("/staffs/{id}")
     public ResponseEntity<Staff> updateEmployee(@PathVariable Long id, @RequestBody Staff employeeDetails) {

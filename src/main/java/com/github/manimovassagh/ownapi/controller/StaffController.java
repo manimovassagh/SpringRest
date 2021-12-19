@@ -2,6 +2,7 @@ package com.github.manimovassagh.ownapi.controller;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.manimovassagh.ownapi.model.Staff;
 import com.github.manimovassagh.ownapi.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@JsonInclude
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class StaffController {

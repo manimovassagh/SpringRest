@@ -40,7 +40,7 @@ public class StaffController {
         return staffRepository.save(staff);
     }
 
-
+    @CrossOrigin
     @RequestMapping()
     @PutMapping("/staffs/{id}")
     public ResponseEntity<Staff> updateEmployee(@PathVariable Long id, @RequestBody Staff employeeDetails) {

@@ -1,6 +1,7 @@
 package com.github.manimovassagh.ownapi.controller;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.github.manimovassagh.ownapi.model.Staff;
 import com.github.manimovassagh.ownapi.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class StaffController {
         return ResponseEntity.ok(staff);
     }
 
-
+@JsonFormat
     @PostMapping("/staffs")
     public Staff createEmployee(@RequestBody Staff staff) {
         return staffRepository.save(staff);

@@ -39,11 +39,14 @@ public class StaffController {
         return staffRepository.save(staff);
     }
 
+    @CrossOrigin
+    @RequestMapping()
     @PutMapping("/staffs/{id}")
     public ResponseEntity<Staff> updateEmployee(@PathVariable Long id, @RequestBody Staff employeeDetails) {
         Staff staff = staffRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
 
+        // staffRepository.save(employeeDetails);
         staff.setFirstName(employeeDetails.getFirstName());
         staff.setLastName(employeeDetails.getLastName());
         staff.setEmail_id(employeeDetails.getEmail_id());

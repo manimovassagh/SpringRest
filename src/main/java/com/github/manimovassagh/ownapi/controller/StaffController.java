@@ -34,7 +34,7 @@ public class StaffController {
         return ResponseEntity.ok(staff);
     }
 
-@JsonFormat
+
     @PostMapping("/staffs")
     public Staff createEmployee(@RequestBody Staff staff) {
         return staffRepository.save(staff);
